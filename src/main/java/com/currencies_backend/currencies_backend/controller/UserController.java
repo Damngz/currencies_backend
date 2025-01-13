@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.currencies_backend.currencies_backend.service.UserService;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
   @Autowired
   private UserService userService;
@@ -23,9 +25,9 @@ public class UserController {
     return ResponseEntity.ok(userService.getAllUsers());
   }
 
-  @GetMapping("/{id}")
-  public ResponseEntity<User> getUserById(@PathVariable Long id) {
-    return userService.getUserById(id)
+  @GetMapping("/{email}")
+  public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
+    return userService.getUserByEmail(email)
       .map(ResponseEntity::ok)
       .orElse(ResponseEntity.notFound().build());
   }
