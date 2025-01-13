@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/currencies")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 public class CurrencyController {
   @Autowired
   private CurrencyService currencyService;
 
-  @GetMapping()
+  @GetMapping
   public ResponseEntity<List<Currency>> getAllCurrencies() {
     return ResponseEntity.ok(currencyService.getAllCurrencies());
   }

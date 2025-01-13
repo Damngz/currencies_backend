@@ -15,7 +15,7 @@ import com.currencies_backend.currencies_backend.service.UserService;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 public class UserController {
   @Autowired
   private UserService userService;

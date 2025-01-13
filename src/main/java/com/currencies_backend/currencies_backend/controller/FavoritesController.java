@@ -16,7 +16,7 @@ import com.currencies_backend.currencies_backend.service.UserService;
 
 @RestController
 @RequestMapping("/favorites")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 public class FavoritesController {
   @Autowired
   private FavoritesService favoritesService;
